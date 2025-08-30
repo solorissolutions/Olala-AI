@@ -399,7 +399,7 @@
         </div>
     </section>
 
-    <div id='product-component-1756582618415'></div>
+<div id='product-component-1756583840255'></div>
 <script type="text/javascript">
 /*<![CDATA[*/
 (function () {
@@ -428,21 +428,24 @@
     ShopifyBuy.UI.onReady(client).then(function (ui) {
       ui.createComponent('product', {
         id: '15193973457244',
-        node: document.getElementById('product-component-1756582618415'),
+        node: document.getElementById('product-component-1756583840255'),
         moneyFormat: '%E2%82%AC%7B%7Bamount_with_comma_separator%7D%7D',
         options: {
   "product": {
     "styles": {
       "product": {
         "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0",
+          "max-width": "calc(25% - 20px)",
+          "margin-left": "20px",
           "margin-bottom": "50px"
         },
-        "text-align": "left"
+        "carousel-button": {
+          "display": "none"
+        }
       },
       "title": {
-        "font-size": "26px"
+        "font-family": "Montserrat, sans-serif",
+        "font-weight": "normal"
       },
       "button": {
         "font-family": "Montserrat, sans-serif",
@@ -457,23 +460,23 @@
         "padding-right": "61px"
       },
       "price": {
-        "font-size": "18px"
+        "font-family": "Montserrat, sans-serif",
+        "font-size": "16px"
       },
       "compareAt": {
-        "font-size": "15.299999999999999px"
+        "font-family": "Montserrat, sans-serif",
+        "font-size": "13.6px"
       },
       "unitPrice": {
-        "font-size": "15.299999999999999px"
+        "font-family": "Montserrat, sans-serif",
+        "font-size": "13.6px"
       }
     },
     "buttonDestination": "checkout",
-    "layout": "horizontal",
     "contents": {
       "img": false,
-      "imgWithCarousel": true,
-      "description": true
+      "imgWithCarousel": true
     },
-    "width": "100%",
     "text": {
       "button": "Buy now"
     },
@@ -722,8 +725,11 @@
                         "I'm Olala, founder and builder of Olala AI. At just 18, I've leveraged the latest AI tools to deliver apps, platforms, and chatbots that help <span style="color: green; font-weight: 500;"> 1K+ happy businesses</span> adapt, grow, and lead in the digital era.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="https://instagram.com/olala_ai" class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white hover:bg-indigo-700 transition duration-300">
+                        <a href="https://instagram.com/oai_org" class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white hover:bg-indigo-700 transition duration-300">
                             <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://tiktok.com/@oai.org" class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white hover:bg-indigo-700 transition duration-300">
+                            <i class="fab fa-tiktok"></i>
                         </a>
                     </div>
                 </div>
@@ -761,14 +767,17 @@
                 </div>
                 <div class="flex space-x-6">
                    
-                    <a href="https://instagram.com/olala_ai" class="text-gray-400 hover:text-white transition duration-300">
+                    <a href="https://instagram.com/oai_org" class="text-gray-400 hover:text-white transition duration-300">
                         <i class="fab fa-instagram"></i>
                     </a>
+                    <a href="https://tiktok.com/@oai.org" class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white hover:bg-indigo-700 transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; 2025 OLALA AI. All rights reserved. Terms of agreement | Privacy policy.</p>
-                <p class="text-xs mt-2">Built with Olala AI deployed via Netlify.</p>
+                <p class="text-xs mt-2">Built with Olala AI.</p>
             </div>
         </div>
     </footer>
