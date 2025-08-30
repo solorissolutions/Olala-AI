@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Built with Figma, deployed via Vercel, hosted with Tiiny.host">
+    <title>AI Solutions Showroom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Designed in Figma | Hosted with Tiiny.host | Deployed via Vercel -->
+    <style>
+        /* Custom CSS for additional styling */
+        body {
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        .package-card {
+            transition: all 0.3s ease;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            overflow-y: auto;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+        .modal-open {
+            display: block;
+            opacity: 1;
+        }
+        .modal-open .modal-content {
+            transform: translateY(0);
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+        .close-modal:hover {
+            color: #000;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .industry-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-xl font-bold text-indigo-600">OLALA AI</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#showcase" class="nav-link">Showcase</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#why-us" class="nav-link">Why Us</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <a href="https://wa.link/t6thgz"  class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md transition duration-300">
+                Contact Us
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white pt-32 pb-20 md:pt-40 md:pb-28 px-4">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                AI-Powered Apps and Chatbots — Built to Scale Your Business.
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 text-indigo-100 max-w-3xl mx-auto">
+                From mobile apps to web platforms and intelligent chatbots, we build digital solutions that drive growth and efficiency.
+            </p>
+            <a href="https://wa.link/t6thgz" 
+               class="bg-white text-indigo-700 hover:bg-indigo-50 font-bold py-4 px-8 rounded-lg text-lg inline-block transition duration-300 transform hover:scale-105">
+                Build With Us
+            </a>
+            
+            <!-- Optional background video -->
+            <div class="video-container mt-16 animate-fade-in">
+                <iframe width="640" height="360" src="https://www.youtube.com/embed/PQUcIbSEBCM" title="Coding with GPT-5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+               <!-- <iframe src="https://youtu.be/PQUcIbSEBCM" 
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section id="showcase" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Smart Solutions in Action</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 bg-indigo-100 flex items-center justify-center">
+                        <div class="w-full h-full bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-6xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">On-Demand Service App</h3>
+                        <p class="text-gray-600 mb-4">Built in 3 weeks. Increased customer bookings by 120%.</p>
+                        <button onclick="openModal('appCaseStudy')" 
+                                class="text-indigo-600 font-semibold hover:text-indigo-800">
+                            View Case Study →
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <div class="w-full h-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-6xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Booking & Payments Platform</h3>
+                        <p class="text-gray-600 mb-4">Process payments 2x faster, cut errors by 80%.</p>
+                        <button onclick="openModal('webCaseStudy')" 
+                                class="text-indigo-600 font-semibold hover:text-indigo-800">
+                            View Case Study →
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 bg-green-100 flex items-center justify-center">
+                        <div class="w-full h-full bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-robot text-6xl text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Customer Support AI</h3>
+                        <p class="text-gray-600 mb-4">AI chatbot for customer support automation.</p>
+                        <button onclick="openModal('chatbotCaseStudy')" 
+                                class="text-indigo-600 font-semibold hover:text-indigo-800">
+                            View Case Study →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Flexible Solutions for Every Stage of Growth</h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">Choose the package that fits your business needs. All packages include deployment and setup support.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Starter Package -->
+                <div class="bg-gray-50 rounded-xl shadow-md p-8 package-card border border-gray-200">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded">Limited Offer</span>
+                    </div>
+                    <div class="text-3xl font-bold text-indigo-600 mb-6">from €399</div>
+                    <ul class="mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>MVP development (mobile or web)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Basic AI chatbot integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Deployment & setup support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Ideal for startups & early ventures</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.link/t6thgz" 
+                       class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center font-bold py-3 rounded-lg transition duration-300 mb-3">
+                        Get Started
+                    </a>
+                    <a href="tel:+4366567058425" class="text-xs text-gray-500 text-center block">Or <span class="text-indigo-600 underline">Call us now!</span></a>
+                </div>
+                
+                <!-- Enterprise Package -->
+                <div class="bg-white rounded-xl shadow-lg p-8 package-card border border-indigo-200 relative">
+                    <div class="absolute top-0 right-0 bg-indigo-600 text-white px-4 py-1 text-sm font-bold rounded-bl-lg">1K+ choice👍🥇</div>
+                    <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                    <div class="text-3xl font-bold text-indigo-600 mb-6">from €1,999</div>
+                    <ul class="mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Scalable mobile & web applications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Advanced chatbot with NLP + analytics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>API integrations & database setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Ongoing support & optimization</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.link/t6thgz" 
+                       class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center font-bold py-3 rounded-lg transition duration-300 mb-3">
+                        Get Started
+                    </a>
+                    <a href="tel:+4366567ß58425" class="text-xs text-gray-500 text-center block">Or <span class="text-indigo-600 underline">Call us now!</span></a>
+                </div>
+                
+                <!-- Corporation Package -->
+                <div class="bg-gray-50 rounded-xl shadow-md p-8 package-card border border-gray-200">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl font-bold mb-4">Corporation</h3>
+                        <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Custom Quote</span>
+                    </div>
+                    <div class="text-3xl font-bold text-indigo-600 mb-6">from €20,000</div>
+                    <ul class="mb-8 space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Full-scale digital ecosystem</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Custom AI solutions & automation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Enterprise-grade security & compliance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Dedicated development & support team</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.link/t6thgz" 
+                       class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center font-bold py-3 rounded-lg transition duration-300 mb-3">
+                        Get Started
+                    </a>
+                    <a href="tel:+4366567058425" class="text-xs text-gray-500 text-center block">Or <span class="text-indigo-600 underline">Call us now!</span></a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-700"><span class="font-semibold">Add-On:</span> Maintenance & AI optimization starting at $199/month.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">What Sets Our AI Solutions Apart?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-rocket text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Faster Development</h3>
+                    <p class="text-gray-600">Faster development cycles with AI assistance, delivering solutions in weeks not months.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cross-Platform Apps</h3>
+                    <p class="text-gray-600">Cross-platform apps (iOS, Android, Web) that provide seamless user experiences.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Intelligent Chatbots</h3>
+                    <p class="text-gray-600">Intelligent chatbots with natural conversations that understand user intent.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Secure Architecture</h3>
+                    <p class="text-gray-600">Secure, scalable, and future-proof architecture that grows with your business.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">For All Business Sizes</h3>
+                    <p class="text-gray-600">Designed for startups, enterprises, and corporations alike with flexible solutions.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-lightbulb text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Innovation Focused</h3>
+                    <p class="text-gray-600">Leveraging the latest AI tools and technologies to keep you ahead of the competition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Real Impact, Real Results</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl testimonial-card border border-gray-200">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-indigo-200 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl font-bold text-indigo-700">JS</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">John Smith</h4>
+                            <p class="text-gray-600">CEO, TechStart Inc.</p>
+                        </div>
+                        <div class="industry-logo bg-blue-100 text-blue-600 ml-auto">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The AI chatbot developed by this team reduced our customer support response time by 60% and improved customer satisfaction scores significantly."</p>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl testimonial-card border border-gray-200">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-blue-200 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl font-bold text-blue-700">EM</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Emma Miller</h4>
+                            <p class="text-gray-600">Founder, ServiceHub</p>
+                        </div>
+                        <div class="industry-logo bg-green-100 text-green-600 ml-auto">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Our booking platform was delivered in just 3 weeks. The team's ability to understand our needs and execute quickly exceeded our expectations."</p>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl testimonial-card border border-gray-200">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-green-200 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl font-bold text-green-700">DR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">David Rodriguez</h4>
+                            <p class="text-gray-600">Operations Manager, RetailCorp</p>
+                        </div>
+                        <div class="industry-logo bg-yellow-100 text-yellow-600 ml-auto">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The custom AI solution automated our inventory management, reducing errors by 85% and saving our team over 20 hours per week in manual work."</p>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                   
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="bg-gray-50 p-8 rounded-xl testimonial-card border border-gray-200">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-purple-200 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-2xl font-bold text-purple-700">SJ</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-gray-600">CTO, HealthTech Solutions</p>
+                        </div>
+                        <div class="industry-logo bg-red-100 text-red-600 ml-auto">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The team's expertise in AI and secure architecture gave us confidence in handling sensitive healthcare data while improving patient engagement."</p>
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Who We Are</h2>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 bg-indigo-200 rounded-full flex items-center justify-center">
+                        <span class="text-6xl font-bold text-indigo-700">AI</span>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                        "I'm Olala, founder and builder of Olala AI. At just 18, I've leveraged the latest AI tools to deliver apps, platforms, and chatbots that help <span style="color: green; font-weight: 500;"> 1K+ happy businesses</span> adapt, grow, and lead in the digital era.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/olala_ai" class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white hover:bg-indigo-700 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">
+                The future is automated, intelligent, and scalable. Let's build it together.
+            </h2>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="https://wa.link/t6thgz" 
+                   class="bg-white text-indigo-700 hover:bg-indigo-50 font-bold py-4 px-8 rounded-lg text-lg inline-block transition duration-300">
+                    Schedule a Consultation
+                </a>
+                <a href="https://wa.link/t6thgz"
+                   class="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-700 font-bold py-4 px-8 rounded-lg text-lg inline-block transition duration-300">
+                    Start Your Project
+                </a>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold">OLALA AI</span>
+                    <p class="text-gray-400 mt-2">Building the future with AI-powered applications</p>
+                </div>
+                <div class="flex space-x-6">
+                   
+                    <a href="https://instagram.com/olala_ai" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 OLALA AI. All rights reserved. Terms of agreement | Privacy policy.</p>
+                <p class="text-xs mt-2">Built with Olala AI deployed via Netlify.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Case Study Modals -->
+    <div id="appCaseStudy" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('appCaseStudy')">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">On-Demand Service App Case Study</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Before</h3>
+                    <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+                        <p class="text-gray-500">Manual booking process<br>Low customer engagement<br>No mobile presence</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">After</h3>
+                    <div class="bg-indigo-100 h-48 rounded-lg flex items-center justify-center">
+                        <p class="text-indigo-700">120% increase in bookings<br>Mobile app with push notifications<br>Automated scheduling</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Results Achieved</h3>
+            <ul class="list-disc pl-5 mb-6">
+                <li>120% increase in customer bookings</li>
+                <li>45% reduction in administrative workload</li>
+                <li>4.8-star rating on app stores</li>
+                <li>Delivered in just 3 weeks</li>
+            </ul>
+            <a href="https://wa.link/t6thgz" 
+               class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg inline-block">
+                Build My App
+            </a>
+        </div>
+    </div>
+
+    <div id="webCaseStudy" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('webCaseStudy')">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">Booking & Payments Platform Case Study</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Before</h3>
+                    <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+                        <p class="text-gray-500">Manual payment processing<br>Frequent booking errors<br>No online presence</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">After</h3>
+                    <div class="bg-blue-100 h-48 rounded-lg flex items-center justify-center">
+                        <p class="text-blue-700">2x faster payment processing<br>80% error reduction<br>24/7 online booking</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Results Achieved</h3>
+            <ul class="list-disc pl-5 mb-6">
+                <li>Payment processing speed doubled</li>
+                <li>Booking errors reduced by 80%</li>
+                <li>Customer satisfaction increased by 65%</li>
+                <li>24/7 booking availability</li>
+            </ul>
+            <a href="https://wa.link/t6thgz" 
+               class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg inline-block">
+                Build My Platform
+            </a>
+        </div>
+    </div>
+
+    <div id="chatbotCaseStudy" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('chatbotCaseStudy')">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">AI Chatbot Case Study</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Before</h3>
+                    <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+                        <p class="text-gray-500">Long wait times for support<br>High support staff workload<br>Inconsistent responses</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">After</h3>
+                    <div class="bg-green-100 h-48 rounded-lg flex items-center justify-center">
+                        <p class="text-green-700">60% faster response time<br>24/7 customer support<br>Consistent, accurate responses</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Results Achieved</h3>
+            <ul class="list-disc pl-5 mb-6">
+                <li>Customer support response time reduced by 60%</li>
+                <li>Support staff workload decreased by 45%</li>
+                <li>Customer satisfaction scores improved significantly</li>
+                <li>24/7 support availability</li>
+            </ul>
+            <a href="https://wa.link/t6thgz" 
+               class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg inline-block">
+                Build My Chatbot
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Simple JavaScript for navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('text-indigo-600');
+                    link.classList.add('text-gray-600');
+                    
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.remove('text-gray-600');
+                        link.classList.add('text-indigo-600');
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('modal-open');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
