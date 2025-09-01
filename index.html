@@ -17,6 +17,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1254206946183014');
 fbq('track', 'PageView');
+    fbq('track', 'Buy Now', {currency: "EUR", value: 399.00});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1254206946183014&ev=PageView&noscript=1"
@@ -943,6 +944,10 @@ src="https://www.facebook.com/tr?id=1254206946183014&ev=PageView&noscript=1"
                 }
             });
         }
+        <button id="addToCartButton">Purchase</button>
+<script type="text/javascript">
+  $('#addToCartButton').click(function() {
+    fbq('track', 'Purchase', {currency: "USD", value: 30.00});
     </script>
 </body>
 </html>
