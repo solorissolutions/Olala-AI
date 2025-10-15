@@ -1,0 +1,247 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - OlalaAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Lora&display=swap" rel="stylesheet">
+  <style>
+    /* Pink-to-blue-to-purple gradient animation */
+    .gradient-bg {
+      background: linear-gradient(45deg, #ff0077, #3b82f6, #a855f7);
+      background-size: 400%;
+      animation: gradient 12s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Fade-in animation for text */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-delay-1 { animation-delay: 0.2s; }
+    .fade-in-delay-2 { animation-delay: 0.4s; }
+    .fade-in-delay-3 { animation-delay: 0.6s; }
+    .fade-in-delay-4 { animation-delay: 0.8s; }
+    .fade-in-delay-5 { animation-delay: 1s; }
+    .fade-in-delay-6 { animation-delay: 1.2s; }
+    /* Luxury fonts and sexy styling */
+    body {
+      font-family: 'Lora', serif;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+    }
+    /* Glow effect for button and stats */
+    .glow {
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+    .glow:hover {
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+    }
+    /* Counter animation for stats */
+    .counter {
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+    /* Animated checkmark */
+    .checkmark {
+      stroke: #ff0077;
+      stroke-width: 4;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: draw 1.5s ease forwards;
+    }
+    @keyframes draw {
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between gradient-bg text-white">
+  <div class="text-center p-6 max-w-2xl mx-auto">
+    <!-- Logo Placeholder -->
+    <div class="mb-6 fade-in">
+      <img src="logo.png" alt="OlalaAI Logo" class="mx-auto h-16 md:h-20">
+      
+    </div>
+    <!-- Animated Checkmark -->
+    <div class="mb-4 fade-in fade-in-delay-1">
+      <svg class="w-16 h-16 mx-auto" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="checkmark" d="M10 25.5L22 37.5L40 15" />
+      </svg>
+    </div>
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4 fade-in fade-in-delay-2 tracking-tight text-pink-300">Thank You!</h1>
+    <p class="text-lg md:text-xl mb-6 fade-in fade-in-delay-3 italic text-gray-100">
+      Message received! The Olala AI team is buzzing and will review and reply very soon. Need a quicker connection? Email us at <a href="mailto:olala.emoulanari@mail.com" class="hover:text-pink-300">olala.emoulanari@gmail.com</a> or call<a href="tel:+4366567058425" class="hover:text-pink-300">+43 066567058425</a>. Let's make some magic happen!
+    </p>
+    <!-- Back to Homepage Button (Prominent) -->
+    <a href="https://olalaai.org" class="inline-block bg-pink-500 text-white font-semibold py-4 px-8 rounded-full hover:bg-pink-600 transition duration-300 glow fade-in fade-in-delay-4 text-lg mb-8">Back to Homepage</a>
+    <!-- Statistics Section with Animated Counters -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 fade-in fade-in-delay-5">
+      <div class="bg-white bg-opacity-10 p-4 rounded-lg glow">
+        <h3 class="text-2xl font-bold text-pink-300 counter" data-target="500">0</h3>
+        <p class="text-sm">Projects Accomplished</p>
+      </div>
+      <div class="bg-white bg-opacity-10 p-4 rounded-lg glow">
+        <h3 class="text-2xl font-bold text-pink-300 counter" data-target="10000">0</h3>
+        <p class="text-sm">Happy Customers</p>
+      </div>
+      <div class="bg-white bg-opacity-10 p-4 rounded-lg glow">
+        <h3 class="text-2xl font-bold text-pink-300 counter" data-target="99">0</h3>
+        <p class="text-sm">Satisfaction Rate (%)</p>
+      </div>
+    </div>
+    <!-- Testimonial Section -->
+    <div class="mb-8 fade-in fade-in-delay-6">
+      <h2 class="text-3xl font-semibold mb-4 text-purple-300">What Our Clients Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white bg-opacity-10 p-4 rounded-lg glow">
+          <p class="text-sm italic">"OlalaAI transformed our business with cutting-edge solutions!"</p>
+          <p class="text-xs mt-2 text-pink-300">– Jane Doe, CEO</p>
+        </div>
+        <div class="bg-white bg-opacity-10 p-4 rounded-lg glow">
+          <p class="text-sm italic">"Their team was professional and delivered beyond expectations."</p>
+          <p class="text-xs mt-2 text-pink-300">– John Smith, Founder</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer with Privacy and Terms Links -->
+  <footer class="w-full text-center py-4 fade-in fade-in-delay-6">
+    <div class="text-sm">
+      <a href="https://olalaai.org/privacy" class="text-white hover:text-pink-300 underline mx-2">Privacy Policy</a>
+      <span>|</span>
+      <a href="https://olalaai.org/terms" class="text-white hover:text-pink-300 underline mx-2">Terms of Use</a>
+    </div>
+  </footer>
+  <script>
+    // Counter animation for statistics
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 100;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCounter, 20);
+        } else {
+          counter.innerText = target + (target === 99 ? '%' : '+');
+        }
+      };
+      updateCounter();
+    });
+
+    // Subtle confetti effect
+    const canvas = document.createElement('canvas');
+    canvas.className = 'absolute inset-0 pointer-events-none';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 50;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 5 + 2;
+        this.speedX = Math.random() * 2 - 1;
+        this.speedY = Math.random() * 2 - 1;
+        this.color = `hsl(${Math.random() * 120 + 240}, 70%, 50%)`; // Pink-to-purple hues
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.size > 0.2) this.size -= 0.1;
+      }
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].size <= 0.2) {
+          particles.splice(i, 1);
+          i--;
+          particles.push(new Particle());
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+    // Resize canvas on window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
