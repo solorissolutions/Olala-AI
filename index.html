@@ -17,6 +17,10 @@
   <meta property="og:image" content="https://olalaai.org/preview.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <!-- Tailwind for premium styling -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -268,53 +272,42 @@
     </div>
   </section>
 
-  <!-- Lifetime Package Offer -->
-<section id="lifetime" class="max-w-3xl mx-auto px-6 py-16 text-center reveal">
-  <div class="panel-card p-10 backdrop-blur-md border border-white/5 shadow-[0_0_40px_rgba(0,255,255,0.08)] rounded-2xl">
-    <h2 class="text-4xl font-bold text-cyan-400 mb-4 tracking-tight">Lifetime Access Package</h2>
-    <p class="text-gray-300 text-base leading-relaxed max-w-2xl mx-auto mb-8">
-      Get <span class="text-cyan-400 font-semibold">unlimited lifetime access</span> to Olala AI’s intelligent systems — 
-      one payment, no renewals, and all future updates included. Own your web intelligence forever.
-    </p>
 
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <!-- Revolut Pay Button -->
-      <a href="https://checkout.revolut.com/pay/32882fad-958a-4afb-979f-0d77b001bb4a"
-         target="_blank"
-         class="cta-btn text-center text-[#021] font-extrabold text-lg py-3 px-10 rounded-xl 
-                transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(0,255,255,0.35)]">
-        💎 Pay via Revolut / Card
+  <!-- lifetime access -->
+  <section id="lifetime" class="max-w-4xl mx-auto px-6 py-16 text-center">
+    <div class="panel-card p-10 backdrop-blur-md border border-white/10 shadow-2xl">
+      <h2 class="text-3xl font-extrabold text-cyan-400 mb-4">Lifetime Access Package</h2>
+      <p class="text-gray-300 text-lg mb-6">
+        One payment — endless innovation. Gain lifetime access to Olala AI’s evolving ecosystem, updates, and premium support.
+      </p>
+      <div class="text-5xl font-extrabold text-cyan-300 mb-2">€199.99<span class="text-lg text-gray-400 font-normal"> one-time</span></div>
+      <ul class="text-gray-200 mb-6 space-y-2">
+        <li>✔ Lifetime platform access and updates</li>
+        <li>✔ Dedicated AI assistant and automation tools</li>
+        <li>✔ Priority support and new feature rollouts</li>
+        <li>✔ Exclusive member-only innovations</li>
+      </ul>
+      <a href="https://checkout.revolut.com/pay/32882fad-958a-4afb-979f-0d77b001bb4a" target="_blank" rel="noopener"
+         class="cta-btn inline-block text-lg px-10 py-4 bg-cyan-400 text-[#021] font-extrabold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(0,255,255,0.35)]">
+        Pay Now via Revolut →
       </a>
-
-      <!-- Alternative CTA -->
-      <button onclick="scrollToTarget('contact')"
-              class="panel-card text-cyan-400 font-semibold text-lg py-3 px-10 rounded-xl 
-                     border border-cyan-400/40 hover:bg-cyan-400/10 transition-all duration-300">
-        Contact Us First
-      </button>
+      <p class="text-sm text-gray-400 mt-4">Secure checkout via Revolut. Cards and Revolut accounts accepted.</p>
     </div>
-
-    <div class="mt-6 text-sm text-gray-400 italic">
-      Secure payment via Revolut. You’ll receive activation & onboarding details within 12 hours after confirmation.
-    </div>
-  </div>
-</section>
+  </section>
 
 
   <!-- contact -->
   <section id="contact" class="max-w-3xl mx-auto px-6 py-10">
     
-<form id="contactForm" class="mt-6 space-y-6 panel-card p-8 backdrop-blur-md border border-white/5 shadow-lg">
 
-  <!-- Web3Forms required -->
-  <input type="hidden" name="access_key" value="73080c4a-f5ae-489f-bc77-2a59ad38d005">
-  <input type="hidden" name="subject" value="New Inquiry from Olala AI Website">
-  <input type="hidden" name="from_name" value="Olala AI Website">
-  <!-- Optional: redirect on success (kept blank since we toast inline); fill if you prefer a page -->
-  <!-- <input type="hidden" name="redirect" value="https://olalaai.org/thank-you.html"> -->
+<form id="contactForm" class="mt-6 space-y-6 panel-card p-8 backdrop-blur-md border border-white/5 shadow-lg" 
+      method="POST" action="https://formsubmit.co/olala.emoulanari@gmail.com" method="POST" action="https://formsubmit.co/olala.emoulanari@gmail.com">
 
-  <!-- Honeypot (anti-bot) -->
-  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+  <!-- Hidden FormSubmit fields -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://olalaai.org/thank-you.html">
+  <input type="hidden" name="_subject" value="New Inquiry from Olala AI Website">
 
   <!-- Title -->
   <div class="text-center mb-4">
@@ -346,9 +339,6 @@
       placeholder="Write your message..." required></textarea>
   </div>
 
-  <!-- Status line -->
-  <p id="formStatus" class="text-sm text-gray-300 hidden"></p>
-
   <!-- Submit Button -->
   <div class="flex justify-center">
     <button type="submit"
@@ -356,10 +346,8 @@
       Send Message →
     </button>
   </div>
-</form>
 
-
-
+    </form>
 
     <!-- Google Map (centered on Leopoldauer Straße 119/1/16) -->
     <div class="mt-8 panel-card">
@@ -372,6 +360,7 @@
       </div>
     </div>
   </section>
+  
 
   <!-- floating call button (dummy telephone link) -->
   <a href="tel:+4366567058425" class="call-btn" aria-label="Call us!">
@@ -387,7 +376,7 @@
     <div class="footer-inner">
       <div>
         <div class="fine">Contact: <a href="mailto:olala.emoulanari@gmail.com" class="fine">olala.emoulanari@gmail.com</a></div>
-        <div class="fine mt-2">© 2025 Olala AI. All rights reserved.</div>
+        <div class="fine mt-2">© <span id="year"></span> Olala AI. All rights reserved.</div>
       </div>
       <div class="flex items-center gap-3">
         <a href="privacy.html" class="fine">Privacy Policy</a>
@@ -523,69 +512,66 @@ form.addEventListener('submit', (e) => {
   }
 
   // Local storage & analytics remain active
- 
+  visitor.formSubmissions = visitor.formSubmissions || [];
+  visitor.formSubmissions.push({t: Date.now(), name, email, message});
+  localStorage.setItem(VISITOR_KEY, JSON.stringify(visitor));
+  recordEvent('form_submit', {
+    name,
+    email: email.replace(/(.{2}).+(@.+)/,'$1***$2'),
+    messagePreview: message.slice(0,80)
+  });
 
-/* ---------- Web3Forms submit (AJAX) ---------- */
-(() => {
+  // ✅ Allow native submission to FormSubmit.co
+  // (No preventDefault here)
+});
+
+  /*******************************
+   * Form handling: Web3Forms + local save + export support
+   *******************************
   const form = document.getElementById('contactForm');
-  const statusEl = document.getElementById('formStatus');
-
-  function showStatus(msg, ok = true) {
-    statusEl.textContent = msg;
-    statusEl.classList.remove('hidden');
-    statusEl.classList.toggle('text-green-300', ok);
-    statusEl.classList.toggle('text-red-300', !ok);
-  }
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const name = document.getElementById('fieldName').value.trim();
     const email = document.getElementById('fieldEmail').value.trim();
     const message = document.getElementById('fieldMessage').value.trim();
+    if(!name || !email || !message){ alert('Please complete the form.'); return; }
 
-    if (!name || !email || !message) {
-      showStatus('Please complete the form.', false);
-      return;
-    }
+    // Save locally (localStorage)
+    visitor.formSubmissions = visitor.formSubmissions || [];
+    visitor.formSubmissions.push({t: Date.now(), name, email, message});
+    localStorage.setItem(VISITOR_KEY, JSON.stringify(visitor));
 
-    // Visitor analytics you already run on the page
-    // (kept consistent with your existing localStorage pattern)
-    try {
-      window.visitor = window.visitor || JSON.parse(localStorage.getItem('olala_visitor_v2') || '{}');
-      visitor.formSubmissions = visitor.formSubmissions || [];
-      visitor.formSubmissions.push({ t: Date.now(), name, email, message });
-      localStorage.setItem('olala_visitor_v2', JSON.stringify(visitor));
-      (window.recordEvent || function(){})('form_submit', {
-        name,
-        email: email.replace(/(.{2}).+(@.+)/,'$1***$2'),
-        messagePreview: message.slice(0,80)
-      });
-    } catch(_) {}
+    // Record event (mask email a little)
+    recordEvent('form_submit',{name, email: email.replace(/(.{2}).+(@.+)/,'$1***$2'), messagePreview: message.slice(0,80)});
 
-    // Assemble payload for Web3Forms
-    const fd = new FormData(form);
+    // Submit to Web3Forms (server-side storage + email) - replace access key in markup
+    const accessKey = form.querySelector('input[name=access_key]').value || 'YOUR_ACCESS_KEY_HERE';
+    const payload = {
+      access_key: accessKey,
+      subject: form.querySelector('input[name=subject]').value || 'New Submission',
+      from_name: form.querySelector('input[name=from_name]').value || 'Olala AI Website',
+      name, email, message
+    };
 
     try {
       const resp = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: fd
+        method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
       });
       const json = await resp.json();
-
-      if (json.success) {
-        showStatus('Message sent successfully. We will reply shortly.');
+      if(json.success){
+        alert('Message sent. We will reply.');
         form.reset();
       } else {
-        showStatus('Send failed on server. Your message was saved locally. Please try again later.', false);
+        alert('Send failed to server (saved locally).');
+        form.reset();
       }
-    } catch (err) {
+    } catch(err){
       console.warn('Web3Forms submit failed', err);
-      showStatus('Network error. Your message was saved locally; please retry.', false);
+      alert('Server send failed — saved locally.');
+      form.reset();
     }
-  });
-})();
-  
+  }); ***/
+
   /*******************************
    * Admin export (downloads local analytics + saved forms)
    *******************************/
@@ -740,9 +726,40 @@ form.addEventListener('submit', (e) => {
   }
   window.scrollToTarget = scrollToTarget;
 
+  // set dynamic year
+  try{document.getElementById('year').textContent = new Date().getFullYear();}catch(e){}
+
   // initial record
   recordEvent('page_view',{path: location.pathname, userAgent: navigator.userAgent});
 
   </script>
+
+<!-- Chatbase Chatbot Integration -->
+<script>
+(function(){
+  if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+    window.chatbase=(...arguments)=>{
+      if(!window.chatbase.q){window.chatbase.q=[]}
+      window.chatbase.q.push(arguments)
+    };
+    window.chatbase=new Proxy(window.chatbase,{
+      get(target,prop){
+        if(prop==="q"){return target.q}
+        return(...args)=>target(prop,...args)
+      }
+    })
+  }
+  const onLoad=function(){
+    const script=document.createElement("script");
+    script.src="https://www.chatbase.co/embed.min.js";
+    script.id="EgVkb5Ki7wwJqYPauDau0";
+    script.domain="www.chatbase.co";
+    document.body.appendChild(script)
+  };
+  if(document.readyState==="complete"){onLoad()}
+  else{window.addEventListener("load",onLoad)}
+})();
+</script>
+
 </body>
 </html>
