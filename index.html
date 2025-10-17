@@ -304,15 +304,17 @@
   <!-- contact -->
   <section id="contact" class="max-w-3xl mx-auto px-6 py-10">
     
+<form id="contactForm" class="mt-6 space-y-6 panel-card p-8 backdrop-blur-md border border-white/5 shadow-lg">
 
-<form id="contactForm" class="mt-6 space-y-6 panel-card p-8 backdrop-blur-md border border-white/5 shadow-lg" 
-      method="POST" action="https://formsubmit.co/olala.emoulanari@gmail.com">
+  <!-- Web3Forms required -->
+  <input type="hidden" name="access_key" value="73080c4a-f5ae-489f-bc77-2a59ad38d005">
+  <input type="hidden" name="subject" value="New Inquiry from Olala AI Website">
+  <input type="hidden" name="from_name" value="Olala AI Website">
+  <!-- Optional: redirect on success (kept blank since we toast inline); fill if you prefer a page -->
+  <!-- <input type="hidden" name="redirect" value="https://olalaai.org/thank-you.html"> -->
 
-  <!-- Hidden FormSubmit fields -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://olalaai.org/thank-you.html">
-  <input type="hidden" name="_subject" value="New Inquiry from Olala AI Website">
+  <!-- Honeypot (anti-bot) -->
+  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
 
   <!-- Title -->
   <div class="text-center mb-4">
@@ -344,6 +346,9 @@
       placeholder="Write your message..." required></textarea>
   </div>
 
+  <!-- Status line -->
+  <p id="formStatus" class="text-sm text-gray-300 hidden"></p>
+
   <!-- Submit Button -->
   <div class="flex justify-center">
     <button type="submit"
@@ -351,10 +356,10 @@
       Send Message →
     </button>
   </div>
+</form>
 
-       
-      </div>
-    </form>
+
+
 
     <!-- Google Map (centered on Leopoldauer Straße 119/1/16) -->
     <div class="mt-8 panel-card">
@@ -518,66 +523,69 @@ form.addEventListener('submit', (e) => {
   }
 
   // Local storage & analytics remain active
-  visitor.formSubmissions = visitor.formSubmissions || [];
-  visitor.formSubmissions.push({t: Date.now(), name, email, message});
-  localStorage.setItem(VISITOR_KEY, JSON.stringify(visitor));
-  recordEvent('form_submit', {
-    name,
-    email: email.replace(/(.{2}).+(@.+)/,'$1***$2'),
-    messagePreview: message.slice(0,80)
-  });
+ 
 
-  // ✅ Allow native submission to FormSubmit.co
-  // (No preventDefault here)
-});
-
-  /*******************************
-   * Form handling: Web3Forms + local save + export support
-   *******************************
+/* ---------- Web3Forms submit (AJAX) ---------- */
+(() => {
   const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('formStatus');
+
+  function showStatus(msg, ok = true) {
+    statusEl.textContent = msg;
+    statusEl.classList.remove('hidden');
+    statusEl.classList.toggle('text-green-300', ok);
+    statusEl.classList.toggle('text-red-300', !ok);
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const name = document.getElementById('fieldName').value.trim();
     const email = document.getElementById('fieldEmail').value.trim();
     const message = document.getElementById('fieldMessage').value.trim();
-    if(!name || !email || !message){ alert('Please complete the form.'); return; }
 
-    // Save locally (localStorage)
-    visitor.formSubmissions = visitor.formSubmissions || [];
-    visitor.formSubmissions.push({t: Date.now(), name, email, message});
-    localStorage.setItem(VISITOR_KEY, JSON.stringify(visitor));
+    if (!name || !email || !message) {
+      showStatus('Please complete the form.', false);
+      return;
+    }
 
-    // Record event (mask email a little)
-    recordEvent('form_submit',{name, email: email.replace(/(.{2}).+(@.+)/,'$1***$2'), messagePreview: message.slice(0,80)});
+    // Visitor analytics you already run on the page
+    // (kept consistent with your existing localStorage pattern)
+    try {
+      window.visitor = window.visitor || JSON.parse(localStorage.getItem('olala_visitor_v2') || '{}');
+      visitor.formSubmissions = visitor.formSubmissions || [];
+      visitor.formSubmissions.push({ t: Date.now(), name, email, message });
+      localStorage.setItem('olala_visitor_v2', JSON.stringify(visitor));
+      (window.recordEvent || function(){})('form_submit', {
+        name,
+        email: email.replace(/(.{2}).+(@.+)/,'$1***$2'),
+        messagePreview: message.slice(0,80)
+      });
+    } catch(_) {}
 
-    // Submit to Web3Forms (server-side storage + email) - replace access key in markup
-    const accessKey = form.querySelector('input[name=access_key]').value || 'YOUR_ACCESS_KEY_HERE';
-    const payload = {
-      access_key: accessKey,
-      subject: form.querySelector('input[name=subject]').value || 'New Submission',
-      from_name: form.querySelector('input[name=from_name]').value || 'Olala AI Website',
-      name, email, message
-    };
+    // Assemble payload for Web3Forms
+    const fd = new FormData(form);
 
     try {
       const resp = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
+        method: 'POST',
+        body: fd
       });
       const json = await resp.json();
-      if(json.success){
-        alert('Message sent. We will reply.');
+
+      if (json.success) {
+        showStatus('Message sent successfully. We will reply shortly.');
         form.reset();
       } else {
-        alert('Send failed to server (saved locally).');
-        form.reset();
+        showStatus('Send failed on server. Your message was saved locally. Please try again later.', false);
       }
-    } catch(err){
+    } catch (err) {
       console.warn('Web3Forms submit failed', err);
-      alert('Server send failed — saved locally.');
-      form.reset();
+      showStatus('Network error. Your message was saved locally; please retry.', false);
     }
-  }); ***/
-
+  });
+})();
+  
   /*******************************
    * Admin export (downloads local analytics + saved forms)
    *******************************/
