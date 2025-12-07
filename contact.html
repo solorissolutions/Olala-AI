@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Olala AI</title>
+  <meta name="description" content="Contact Olala AI to start AI-powered web development projects, secure web applications, and premium UI engineering." />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <img src="logo.png" alt="Olala AI logo" />
+      <div class="text"><strong>Olala AI</strong><span>Contact</span></div>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="studio.html">Studio &amp; Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="learn.html">Learn</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn" href="contact.html">Start a Project</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="section" aria-labelledby="contact-hero">
+      <p class="muted-title">Contact</p>
+      <h1 id="contact-hero" style="font-family:'Space Grotesk','Sora',sans-serif;">Ready to build something real?</h1>
+      <p class="lead">You don’t need technical language — just your idea. Every inquiry is answered directly by the founder for faster decisions.</p>
+    </section>
+
+    <section class="section" aria-labelledby="form-title">
+      <div class="highlight">
+        <h2 id="form-title">Start a Project</h2>
+        <form class="form-grid" aria-label="Project inquiry form">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="name@email.com" required />
+          </div>
+          <div>
+            <label for="project-type">Project Type</label>
+            <select id="project-type" name="project-type">
+              <option>Freelance &amp; Founder Projects</option>
+              <option>Enterprise &amp; Internal Tools</option>
+              <option>School &amp; College Projects</option>
+              <option>AI-Enhanced Products</option>
+              <option>Security &amp; Hosting Support</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option>$5k - $10k</option>
+              <option>$10k - $25k</option>
+              <option>$25k - $50k</option>
+              <option>$50k+</option>
+            </select>
+          </div>
+          <div>
+            <label for="deadline">Deadline</label>
+            <input id="deadline" name="deadline" type="text" placeholder="Timeline" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Share the outcome you want"></textarea>
+          </div>
+          <div style="grid-column:1 / -1;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+            <button class="btn" type="submit">Send Request</button>
+            <p style="margin:0;color:var(--text-muted);">Response within one business day.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="inner">
+      <div>© <span id="year"></span> Olala AI. Secure, AI-powered experiences.</div>
+      <div class="subtle-grid" style="max-width:460px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Start a Project</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
