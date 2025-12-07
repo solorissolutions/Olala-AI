@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Olala AI</title>
+  <meta name="description" content="Featured work across web & mobile, AI & automation, academic work, and video & motion from Olala AI." />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <img src="logo.png" alt="Olala AI logo" />
+      <div class="text"><strong>Olala AI</strong><span>Portfolio</span></div>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="studio.html">Studio &amp; Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="learn.html">Learn</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn" href="contact.html">Start a Project</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="section" aria-labelledby="portfolio-hero">
+      <p class="muted-title">Portfolio</p>
+      <h1 id="portfolio-hero" style="font-family:'Space Grotesk','Sora',sans-serif;">Featured work across categories</h1>
+      <p class="lead">Each project card uses neon gradient radiance, glass layers, and hover interactions. Hover or tap to feel the 3D tilt-inspired glow.</p>
+    </section>
+
+    <section class="section" aria-labelledby="featured-work">
+      <h2 id="featured-work">Featured Work</h2>
+      <div class="card-grid">
+        <div class="card" style="border-image: var(--gradient) 1;">
+          <div class="pill">AI Enterprise Suite</div>
+          <p>Enterprise web tools with retrieval-ready AI automation and high-trust UI.</p>
+        </div>
+        <div class="card" style="border-image: var(--gradient) 1;">
+          <div class="pill">Mobile Intelligence</div>
+          <p>Mobile app pairing magenta-to-violet gradients with on-device privacy.</p>
+        </div>
+        <div class="card" style="border-image: var(--gradient) 1;">
+          <div class="pill">Research Studio</div>
+          <p>Academic workbench with transparent AI reasoning and exportable evidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="web-mobile">
+      <h2 id="web-mobile">Web &amp; Mobile</h2>
+      <div class="card-grid">
+        <div class="card"><div class="pill">Dashboard Systems</div><p>Responsive dashboards with glowing borders and crisp motion.</p></div>
+        <div class="card"><div class="pill">Marketing Experiences</div><p>High-conversion pages blending neon accents and glassmorphism overlays.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ai-automation">
+      <h2 id="ai-automation">AI &amp; Automation</h2>
+      <div class="card-grid">
+        <div class="card"><div class="pill">AI Operations</div><p>Assistants, insights, and automation that stay observable.</p></div>
+        <div class="card"><div class="pill">Copilot UI</div><p>UI shells for chat and task routing with premium typography.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="academic-work">
+      <h2 id="academic-work">Academic Work</h2>
+      <div class="card-grid">
+        <div class="card"><div class="pill">Learning Portals</div><p>Accessible portals with clear labeling and evidence trails.</p></div>
+        <div class="card"><div class="pill">Interactive Labs</div><p>Lab simulations and visualizations built with clarity-first UI.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="video-motion">
+      <h2 id="video-motion">Video &amp; Motion</h2>
+      <div class="card-grid">
+        <div class="card"><div class="pill">Launch Films</div><p>Cinematic motion graphics with neon particle overlays.</p></div>
+        <div class="card"><div class="pill">Micro-animations</div><p>Sub-300ms interactions that make interfaces feel alive.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="inner">
+      <div>© <span id="year"></span> Olala AI. Secure, AI-powered experiences.</div>
+      <div class="subtle-grid" style="max-width:460px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Start a Project</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

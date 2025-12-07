@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Olala AI</title>
+  <meta name="description" content="About Olala AI: a one-person studio with range, micro-lab engineering mindset, clarity, security, teaching, and design." />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <img src="logo.png" alt="Olala AI logo" />
+      <div class="text"><strong>Olala AI</strong><span>About</span></div>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="studio.html">Studio &amp; Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="learn.html">Learn</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn" href="contact.html">Start a Project</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="section" aria-labelledby="about-hero">
+      <p class="muted-title">About</p>
+      <h1 id="about-hero" style="font-family:'Space Grotesk','Sora',sans-serif;">A one-person studio with range.</h1>
+      <p class="lead">Micro-lab engineering mindset. Clarity, security, teaching, design. A premium feel with the honesty of a single expert developer.</p>
+      <div class="hero-visual">
+        <div class="glass-panel">
+          <div class="orb" aria-hidden="true"></div>
+          <div style="position:absolute;inset:14px;display:grid;gap:10px;">
+            <div class="card"><div class="pill">Mission</div><p style="margin:0;color:var(--text-muted);">Deliver AI-powered web development with calm, reliable UX and security-first craft.</p></div>
+            <div class="card"><div class="pill">Values</div><p style="margin:0;color:var(--text-muted);">Clarity, accountability, privacy, and teaching through transparent design.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="timeline">
+      <h2 id="timeline">Timeline</h2>
+      <div class="card-grid">
+        <div class="card"><div class="pill">Early R&amp;D</div><p>Explored enterprise web tools, automation, and AI evaluation frameworks.</p></div>
+        <div class="card"><div class="pill">Design Lead</div><p>Led UI systems with neon gradient tokens and glassmorphism patterns.</p></div>
+        <div class="card"><div class="pill">One-person Studio</div><p>Combined strategy, design, and engineering into a single accountable stack.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="skill-stack">
+      <h2 id="skill-stack">Skill Stack</h2>
+      <div class="card-grid">
+        <div class="card"><div class="pill">Frontend</div><p>React 18, TypeScript 5, Vite, Tailwind, Framer Motion.</p></div>
+        <div class="card"><div class="pill">Backend</div><p>Node 20, structured APIs, data modeling, observability.</p></div>
+        <div class="card"><div class="pill">AI</div><p>Retrieval, copilots, AI integration for apps, evaluation and safety.</p></div>
+        <div class="card"><div class="pill">Security</div><p>Threat modeling, encryption, privacy-first storage, compliance-aware flows.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="inner">
+      <div>© <span id="year"></span> Olala AI. Secure, AI-powered experiences.</div>
+      <div class="subtle-grid" style="max-width:460px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Start a Project</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
