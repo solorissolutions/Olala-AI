@@ -1,0 +1,38 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="40%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#FF7A1F" stop-opacity="1" />
+      <stop offset="50%" stop-color="#F72585" stop-opacity="1" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="1" />
+    </radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="#05030A" />
+  <g filter="url(#shadow)">
+    <path d="M256 64C349 64 432 147 432 240C432 333 349 416 256 416C163 416 80 333 80 240C80 147 163 64 256 64Z" stroke="url(#glow)" stroke-width="3" opacity="0.9"/>
+    <path d="M156 120C204 150 310 148 354 204C401 264 362 356 300 390C244 420 162 404 124 350C72 280 107 192 156 120Z" stroke="url(#glow)" stroke-width="2.6" opacity="0.8"/>
+    <path d="M140 268C174 296 256 294 302 324C350 356 356 402 326 430C286 468 206 468 162 430C110 386 84 326 100 288C116 250 116 240 140 268Z" stroke="url(#glow)" stroke-width="2.2" opacity="0.7"/>
+    <circle cx="256" cy="240" r="124" stroke="url(#glow)" stroke-width="2" opacity="0.65"/>
+    <circle cx="256" cy="240" r="92" stroke="url(#glow)" stroke-width="2" opacity="0.6"/>
+    <circle cx="256" cy="240" r="54" stroke="url(#glow)" stroke-width="2" opacity="0.6"/>
+    <line x1="256" y1="112" x2="256" y2="368" stroke="url(#glow)" stroke-width="2" opacity="0.75"/>
+    <line x1="128" y1="240" x2="384" y2="240" stroke="url(#glow)" stroke-width="2" opacity="0.75"/>
+    <line x1="164" y1="156" x2="352" y2="332" stroke="url(#glow)" stroke-width="2" opacity="0.7"/>
+    <line x1="352" y1="156" x2="164" y2="332" stroke="url(#glow)" stroke-width="2" opacity="0.7"/>
+    <circle cx="256" cy="240" r="8" fill="#FF7A1F"/>
+    <circle cx="256" cy="176" r="7" fill="#FF7A1F" />
+    <circle cx="256" cy="304" r="7" fill="#8B5CF6" />
+    <circle cx="192" cy="240" r="6" fill="#FF7A1F" />
+    <circle cx="320" cy="240" r="6" fill="#8B5CF6" />
+    <circle cx="214" cy="198" r="6" fill="#F72585" />
+    <circle cx="298" cy="198" r="6" fill="#F72585" />
+    <circle cx="214" cy="282" r="6" fill="#F72585" />
+    <circle cx="298" cy="282" r="6" fill="#F72585" />
+  </g>
+</svg>

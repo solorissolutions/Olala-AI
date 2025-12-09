@@ -1,0 +1,135 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background glow behind the O -->
+    <radialGradient id="bgGlow" cx="35%" cy="35%" r="70%">
+      <stop offset="0%"   stop-color="#ff9a3c" stop-opacity="0.9"/>
+      <stop offset="35%"  stop-color="#ff2e88" stop-opacity="0.7"/>
+      <stop offset="80%"  stop-color="#7b2ff7" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Main ring fill (matches orb accent) -->
+    <radialGradient id="oFill" cx="30%" cy="25%" r="80%">
+      <stop offset="0%"   stop-color="#ffd7a1" stop-opacity="0.95"/>
+      <stop offset="25%"  stop-color="#ff9a3c" stop-opacity="0.98"/>
+      <stop offset="55%"  stop-color="#ff2e88" stop-opacity="0.98"/>
+      <stop offset="85%"  stop-color="#7b2ff7" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#12001f" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Chromatic outer edge -->
+    <linearGradient id="oStroke" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%"   stop-color="#ff9a3c"/>
+      <stop offset="45%"  stop-color="#ff2e88"/>
+      <stop offset="100%" stop-color="#7b2ff7"/>
+    </linearGradient>
+
+    <!-- Inner ring highlight -->
+    <radialGradient id="innerRim" cx="40%" cy="30%" r="65%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%"  stop-color="#ffb347" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Glow + depth filter for 5D effect -->
+    <filter id="oGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <!-- soft color glow -->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur1"/>
+      <feColorMatrix in="blur1" type="matrix"
+        values="1 0 0 0 0
+                0 0.3 0 0 0
+                0 0 0.7 0 0
+                0 0 0 1 0"
+        result="glow"/>
+      <!-- drop shadow -->
+      <feOffset in="SourceAlpha" dx="0" dy="14" result="offShadow"/>
+      <feGaussianBlur in="offShadow" stdDeviation="14" result="shadowBlur"/>
+      <feColorMatrix in="shadowBlur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.75 0"
+        result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Mask to cut donut shape -->
+    <mask id="oMask">
+      <rect width="100%" height="100%" fill="black"/>
+      <circle cx="256" cy="220" r="150" fill="white"/>
+      <circle cx="256" cy="220" r="90"  fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Full black background -->
+  <rect width="100%" height="100%" fill="#020203"/>
+
+  <!-- Background glow echoing the orb -->
+  <circle cx="256" cy="220" r="190" fill="url(#bgGlow)" opacity="0.95"/>
+
+  <!-- 5D tech ring O -->
+  <g filter="url(#oGlow)">
+    <!-- main body -->
+    <circle
+      cx="256"
+      cy="220"
+      r="150"
+      fill="url(#oFill)"
+      mask="url(#oMask)"
+    />
+
+    <!-- outer chromatic edge -->
+    <circle
+      cx="256"
+      cy="220"
+      r="150"
+      fill="none"
+      stroke="url(#oStroke)"
+      stroke-width="6"
+    />
+
+    <!-- inner highlight rim -->
+    <circle
+      cx="256"
+      cy="220"
+      r="110"
+      fill="none"
+      stroke="url(#innerRim)"
+      stroke-width="26"
+      opacity="0.95"
+    />
+
+    <!-- subtle inner network hint -->
+    <g stroke="#ff9a3c" stroke-width="1.1" opacity="0.35">
+      <path d="M176 150 C210 130 240 122 276 128 C312 134 340 150 360 176"/>
+      <path d="M170 205 C210 192 240 188 276 190 C312 192 342 200 364 210"/>
+      <path d="M176 260 C210 248 240 244 276 246 C312 248 340 256 360 270"/>
+      <path d="M210 140 C205 185 210 225 228 260 C246 295 268 315 292 325"/>
+    </g>
+
+    <!-- small glowing nodes on ring -->
+    <g>
+      <circle cx="182" cy="176" r="4" fill="#ffb347"/>
+      <circle cx="212" cy="142" r="4" fill="#ffb347"/>
+      <circle cx="250" cy="132" r="4" fill="#ff6a3c"/>
+      <circle cx="312" cy="148" r="4" fill="#ff2e88"/>
+      <circle cx="338" cy="190" r="4" fill="#ff2e88"/>
+      <circle cx="332" cy="242" r="4" fill="#b22fff"/>
+      <circle cx="294" cy="284" r="4" fill="#7b2ff7"/>
+      <circle cx="232" cy="284" r="4" fill="#ff9a3c"/>
+    </g>
+  </g>
+
+  <!-- Optional: brand text placeholder (remove if you only want the O icon) -->
+  <!--
+  <text x="50%" y="470" text-anchor="middle"
+        font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="64" font-weight="700"
+        letter-spacing="10" fill="#ffffff">
+    OLALA AI
+  </text>
+  -->
+</svg>
